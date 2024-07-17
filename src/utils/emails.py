@@ -7,23 +7,23 @@ from utils.settings import getSettings
 
 settings = getSettings()
 conf = ConnectionConfig(
-    MAIL_USERNAME = settings.ADMIN_EMAIL_USERNAME,
-    MAIL_PASSWORD = settings.ADMIN_EMAIL_PASSWORD,
-    MAIL_FROM = settings.ADMIN_EMAIL,
-    MAIL_PORT = settings.MAIL_PORT,
-    MAIL_SERVER = settings.MAIL_SERVER,
-    MAIL_STARTTLS = False,
-    MAIL_SSL_TLS = True,
-    USE_CREDENTIALS = True,
-    VALIDATE_CERTS = True
+    MAIL_USERNAME=settings.ADMIN_EMAIL_USERNAME,
+    MAIL_PASSWORD=settings.ADMIN_EMAIL_PASSWORD,
+    MAIL_FROM=settings.ADMIN_EMAIL,
+    MAIL_PORT=settings.MAIL_PORT,
+    MAIL_SERVER=settings.MAIL_SERVER,
+    MAIL_STARTTLS=False,
+    MAIL_SSL_TLS=True,
+    USE_CREDENTIALS=True,
+    VALIDATE_CERTS=True
 )
 fm = FastMail(conf)
 
 
 async def send_verify_message(email: EmailStr, token: str) -> JSONResponse:
     with open("res/verify_message.html", 'r') as f:
-        html = "EXAMPLE" 
-        #TODO emplement example
+        html = "EXAMPLE"
+        # TODO emplement example
     message = MessageSchema(
         subject="Thanks for using TASKraken",
         recipients=[email],
